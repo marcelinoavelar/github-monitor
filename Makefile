@@ -8,12 +8,4 @@ test:
 	pytest -v
 
 coverage:
-	pytest --cov=github-monitor tests/
-	pytest --cov=github-monitor --cov-report html tests/
-
-coverage-console:
-	clear
-	pytest --cov=github-monitor tests/
-
-	
-
+	pytest -v --cov-report term --cov-report html:htmlcov --cov-report xml --cov-fail-under=90 --cov=src/
