@@ -9,6 +9,6 @@ class Issue:
 
     def __post_init__(self):
         if len(self.title) < 1:
-            raise ValueError("Invalid title")
+            raise ValueError('Invalid title')
         if len(self.author) < 1:
-            raise ValueError("Invalid author")
+            raise ValueError('Invalid author')

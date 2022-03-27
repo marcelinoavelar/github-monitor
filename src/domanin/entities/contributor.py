@@ -9,6 +9,6 @@ class Contributor:
 
     def __post_init__(self):
         if len(self.username) < 1:
-            raise ValueError("Invalid username")
+            raise ValueError('Invalid username')
         if len(self.name) < 1:
-            raise ValueError("Invalid name")
+            raise ValueError('Invalid name')

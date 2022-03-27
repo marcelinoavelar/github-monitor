@@ -14,9 +14,9 @@ class GithubData:
 
     def __post_init__(self):
         if len(self.user) < 1:
-            raise ValueError("Invalid user")
+            raise ValueError('Invalid user')
         if len(self.repository) < 1:
-            raise ValueError("Invalid repository")
+            raise ValueError('Invalid repository')
 
     def to_json(self):
         return dataclasses.asdict(self)
