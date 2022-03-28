@@ -19,3 +19,6 @@ class ScheduleInMemoryRepository(ScheduleRepository, ABC):
 
     def save(self, schedule: Schedule):
         self.schedules.append(schedule)
+
+    def all(self):
+        return self.schedules

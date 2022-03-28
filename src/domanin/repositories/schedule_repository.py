@@ -12,3 +12,7 @@ class ScheduleRepository(ABC):
     @abstractmethod
     def save(self, schedule: Schedule):
         raise NotImplementedError
+
+    @abstractmethod
+    def all(self) -> list[Schedule]:
+        raise NotImplementedError

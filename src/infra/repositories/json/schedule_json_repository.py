@@ -14,15 +14,14 @@ class ScheduleJsonRepository(ScheduleRepository, ABC):
             raise Exception("File not found")
         with open(self.filename) as data:
             schedules = json.load(data)
-        print(f'@@@@ {schedule_id}')
         for schedule in schedules:
             if schedule['schedule_id'] == schedule_id:
                 user = schedule['user']
                 repository = schedule['repository']
                 url = schedule['url']
                 schedule_id = schedule['schedule_id']
-                return Schedule(user,repository,url,schedule_id)
-        raise Exception('Nof found schedule')
+                return Schedule(user, repository, url, schedule_id)
+        raise ValueError('Nof found schedule')
 
     def save(self, schedule: Schedule):
         if path.isfile(self.filename) is False:
@@ -42,3 +41,17 @@ class ScheduleJsonRepository(ScheduleRepository, ABC):
             json.dump(schedules, json_file,
                       indent=4,
                       separators=(',', ': '))
+
+    def all(self):
+        if path.isfile(self.filename) is False:
+            raise Exception("File not found")
+        with open(self.filename) as data:
+            schedules_in_file = json.load(data)
+        schedules_return = []
+        for schedule in schedules_in_file:
+            user = schedule['user']
+            repository = schedule['repository']
+            url = schedule['url']
+            schedule_id = schedule['schedule_id']
+            schedules_return.append(Schedule(user, repository, url, schedule_id))
+        return schedules_return

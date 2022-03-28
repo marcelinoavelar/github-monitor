@@ -4,8 +4,9 @@ from src.application.use_cases.process_hook import ProcessHook
 from src.application.use_cases.process_hook_dto import ProcessHookInput
 from src.application.use_cases.schedule_hook import ScheduleHook
 from src.application.use_cases.schedule_hook_dto import ScheduleHookInput
-from src.infra.factories.rest_repository_factory import RestRepositoryFactory
 from src.infra.factories.json_repository_factory import JsonRepositoryFactory
+from src.infra.factories.rest_repository_factory import RestRepositoryFactory
+
 
 def get_parser():
     parser = argparse.ArgumentParser()

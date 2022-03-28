@@ -27,8 +27,8 @@ class TestGetScheduleHook:
         output_get_schedule = get_schedule_use_case.execute(input_get_schedule)
         assert output_get_schedule.schedule_id == output_schedule.schedule_id
 
-    # def test_should_not_given_not_found_schedule(self):
-    #     with pytest.raises(ValueError, match='Not found schedule'):
-    #         _input = GetScheduleInput('xpto')
-    #         get_schedule = GetSchedule(repository_factory)
-    #         get_schedule.execute(_input)
+    def test_should_not_given_not_found_schedule(self):
+        with pytest.raises(ValueError, match='Nof found schedule'):
+            _input = GetScheduleInput('xpto')
+            get_schedule = GetSchedule(repository_factory)
+            get_schedule.execute(_input)

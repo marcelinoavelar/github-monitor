@@ -12,3 +12,6 @@ class ScheduleJsonRepository(ScheduleRepository, ABC):
 
     def save(self, schedule: Schedule):
         print('x')
+
+    def all(self):
+        return []
