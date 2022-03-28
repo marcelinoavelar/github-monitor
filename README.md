@@ -6,10 +6,11 @@ Monitor de repositórios via rest API
 
 #### Configurando projeto
 ```bash
-$ git clone https://github.com/marcelinoavelar/github-monitor.git
+$ git clone git@github.com:marcelinoavelar/github-monitor.git
 $ cd github-monitor
-$ source .venv/bin/active
-$ pip install -r queriments.txt
+$ python -m venv .venv
+$ source .venv/bin/activate
+$ pip install -r requirements.txt
 ``` 
 
 #### Executando testes
@@ -17,18 +18,18 @@ $ pip install -r queriments.txt
 $ make test
 ``` 
 
-#### Listar a opções para enviar ou agendar um hook via linha de comando
+#### Listar opções para enviar ou agendar um hook via linha de comando
 ```bash
 $ python main.py -h
 ``` 
 
-#### Inicializar a api rest, execute os comando abaixo.
+#### Inicializar api rest.
 ```bash
 $ uvicorn server:app --reload
 ``` 
-Acesse no seu navegador [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs)
+Acesse no seu navegador [http://127.0.0.1:8000/docs](http://127.0.0.1:8000/docs) e veja a documentação da API
 
-#### Executar o hooks agendados
+#### Executar hooks agendados
 ```bash
 $ python job.py
 ``` 
