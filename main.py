@@ -11,10 +11,13 @@ from src.infra.factories.rest_repository_factory import RestRepositoryFactory
 def get_parser():
     parser = argparse.ArgumentParser()
     parser_group = parser.add_argument_group()
-    parser_group.add_argument('-u', '--user', dest='user', type=str, required=True)
-    parser_group.add_argument('-r', '--repo', dest='repository', type=str, required=True)
-    parser_group.add_argument('-w', '--webhook', dest='url_hook', type=str, required=True)
-    parser_group.add_argument('-s', '--schedule', dest='schedule', type=bool)
+    parser_group.add_argument('-u', '--user', dest='user', type=str, required=True,
+                              help='Login do usuairo dono do reposito')
+    parser_group.add_argument('-r', '--repo', dest='repository', type=str, required=True, help='Nome do repositório')
+    parser_group.add_argument('-w', '--webhook', dest='url_hook', type=str, required=True,
+                              help='Url para chamado do Webhook')
+    parser_group.add_argument('-s', '--schedule', dest='schedule', type=bool,
+                              help='Informar True para agendar execução ')
     return parser.parse_args()
 
 
