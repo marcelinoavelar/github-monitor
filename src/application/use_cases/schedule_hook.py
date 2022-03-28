@@ -12,6 +12,7 @@ class ScheduleHook:
         self.repository_factory = repository_factory.schedule_repository
 
     def execute(self, _input: ScheduleHookInput) -> ScheduleHookOutput:
-        schedule = Schedule(_input.user, _input.repository, _input.url, str(uuid.uuid4()))
+        schedule_id = str(uuid.uuid4())
+        schedule = Schedule(_input.user, _input.repository, _input.url, schedule_id)
         self.repository_factory.save(schedule)
-        return ScheduleHookOutput('Schedule create with success')
+        return ScheduleHookOutput('Schedule create with success', schedule_id)

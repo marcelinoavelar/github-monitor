@@ -19,6 +19,7 @@ class ScheduleHookInput:
 @dataclass
 class ScheduleHookOutput:
     message: str
+    schedule_id: str
 
     def __post_init__(self):
         if len(self.message) < 1:

@@ -6,12 +6,13 @@ sys.path.append('')
 
 from src.application.use_cases.schedule_hook import ScheduleHook
 from src.application.use_cases.schedule_hook_dto import ScheduleHookInput
-from src.infra.factories.in_memory_repository_factory import InMemoryRepositoryFactory
+# from src.infra.factories.in_memory_repository_factory import InMemoryRepositoryFactory
+from src.infra.factories.json_repository_factory import JsonRepositoryFactory
 
-repository_factory = InMemoryRepositoryFactory()
+repository_factory = JsonRepositoryFactory()
 
 
-class TestProcessHook:
+class TestScheduleHook:
 
     def test_should_schedule_hook(self):
         _input = ScheduleHookInput('linus', 'linux', 'https://webhook.webhook/123456789')
