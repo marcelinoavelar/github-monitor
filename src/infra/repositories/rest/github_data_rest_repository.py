@@ -10,16 +10,13 @@ class GithubDataRestRepository(GithubDataRepository):
     github_base_url = 'https://api.github.com/repos/'
 
     def find(self, user: str, repository: str) -> GithubData:
-        try:
-            base_url = f'{self.github_base_url}{user}/{repository}/'
-            issues = get_issues(base_url)
-            contributors = get_contributors(base_url)
-            github_data = get_github_data(base_url)
-            github_data.issues = issues
-            github_data.contributors = contributors
-            return github_data
-        finally:
-            raise ValueError('Request fail, verify rate limit')
+        base_url = f'{self.github_base_url}{user}/{repository}/'
+        issues = get_issues(base_url)
+        contributors = get_contributors(base_url)
+        github_data = get_github_data(base_url)
+        github_data.issues = issues
+        github_data.contributors = contributors
+        return github_data
 
 
 def get_github_data(url: str):
@@ -62,4 +59,3 @@ def get_name_of_contributor(login: str):
         return json_data['name']
     except ValueError(f'#{login}') as error:
         return error
-    return json_data['name']
