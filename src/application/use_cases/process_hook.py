@@ -21,3 +21,4 @@ class ProcessHook:
         if not request:
             raise ValueError('Fail request to hook')
         return ProcessHookOutput('Success hook process')
+

@@ -2,22 +2,22 @@ from dataclasses import dataclass
 
 
 @dataclass
-class ProcessHookInput:
+class ScheduleHookInput:
     user: str
     repository: str
-    url_hook: str
+    url: str
 
     def __post_init__(self):
         if len(self.user) < 1:
-            raise ValueError('Invalid username')
+            raise ValueError('Invalid user')
         if len(self.repository) < 1:
-            raise ValueError('Invalid name')
-        if len(self.url_hook) < 1:
-            raise ValueError('Invalid url hook')
+            raise ValueError('Invalid repository')
+        if len(self.url) < 1:
+            raise ValueError('Invalid url')
 
 
 @dataclass
-class ProcessHookOutput:
+class ScheduleHookOutput:
     message: str
 
     def __post_init__(self):

@@ -30,7 +30,7 @@ class TestProcessHook:
         with requests_mock.Mocker() as mock:
             mock.post(url_hook, status_code=200)
             with pytest.raises(ValueError, match='Not found repository'):
-                output = process_hook.execute(_input)
+                process_hook.execute(_input)
 
     def test_not_should_process_hook_with_invalid_hook(self):
         url_hook = 'https://webhook.webhook/rando-web-hook'
@@ -39,4 +39,4 @@ class TestProcessHook:
         with requests_mock.Mocker() as mock:
             mock.post(url_hook, status_code=404)
             with pytest.raises(ValueError, match='Fail request to hook'):
-                output = process_hook.execute(_input)
+                process_hook.execute(_input)
