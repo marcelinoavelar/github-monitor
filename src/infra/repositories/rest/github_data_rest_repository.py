@@ -7,21 +7,23 @@ from src.domanin.repositories.github_data_repository import GithubDataRepository
 
 
 class GithubDataRestRepository(GithubDataRepository):
-    github_url = 'https://api.github.com/repos/'
+    github_base_url = 'https://api.github.com/repos/'
 
     def find(self, user: str, repository: str) -> GithubData:
-        base_url = f'{self.github_base_url}{user}/{repository}/'
-        issues = get_issues(base_url)
-        contributors = get_contributors(base_url)
-        github_data = get_github_data(base_url)
-        github_data.issues = issues
-        github_data.contributors = contributors
-        return github_data
+        try:
+            base_url = f'{self.github_base_url}{user}/{repository}/'
+            issues = get_issues(base_url)
+            contributors = get_contributors(base_url)
+            github_data = get_github_data(base_url)
+            github_data.issues = issues
+            github_data.contributors = contributors
+            return github_data
+        finally:
+            raise ValueError('Request fail, verify rate limit')
 
 
 def get_github_data(url: str):
-    response_data = requests.get(f'{url}')
-    print(response_data.json())
+    response_data = requests.get(f'{url[:-1]}')
     user = response_data.json()['owner']['login']
     name = response_data.json()['name']
     github_data = GithubData(user, name)
@@ -29,7 +31,7 @@ def get_github_data(url: str):
 
 
 def get_issues(url: str):
-    response_data = requests.get(f'{url}/issues')
+    response_data = requests.get(f'{url}issues')
     json_data = response_data.json()
     issues = []
     for issue in json_data:
@@ -43,7 +45,7 @@ def get_issues(url: str):
 
 
 def get_contributors(url: str):
-    response_data = requests.get(f'{url}/contributors')
+    response_data = requests.get(f'{url}contributors')
     json_data = response_data.json()
     contributors = []
     for contributor in json_data:
@@ -56,4 +58,8 @@ def get_contributors(url: str):
 def get_name_of_contributor(login: str):
     response_data = requests.get(f'https://api.github.com/users/{login}')
     json_data = response_data.json()
+    try:
+        return json_data['name']
+    except ValueError(f'#{login}') as error:
+        return error
     return json_data['name']

@@ -4,7 +4,7 @@ from dataclasses import dataclass
 @dataclass
 class ProcessHookInput:
     user: str
-    repository: list
+    repository: str
     url_hook: str
 
     def __post_init__(self):
