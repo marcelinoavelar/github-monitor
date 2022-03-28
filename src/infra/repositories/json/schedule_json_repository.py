@@ -11,7 +11,7 @@ class ScheduleJsonRepository(ScheduleRepository, ABC):
 
     def find(self, schedule_id: str) -> Schedule:
         if path.isfile(self.filename) is False:
-            raise Exception("File not found")
+            self.create_file()
         with open(self.filename) as data:
             schedules = json.load(data)
         for schedule in schedules:
@@ -25,9 +25,7 @@ class ScheduleJsonRepository(ScheduleRepository, ABC):
 
     def save(self, schedule: Schedule):
         if path.isfile(self.filename) is False:
-            file = open("db.json", "w")
-            file.write("[]")
-            file.close()
+            self.create_file()
         with open(self.filename) as data:
             schedules = json.load(data)
 
@@ -44,7 +42,7 @@ class ScheduleJsonRepository(ScheduleRepository, ABC):
 
     def all(self):
         if path.isfile(self.filename) is False:
-            raise Exception("File not found")
+            self.create_file()
         with open(self.filename) as data:
             schedules_in_file = json.load(data)
         schedules_return = []
@@ -55,3 +53,8 @@ class ScheduleJsonRepository(ScheduleRepository, ABC):
             schedule_id = schedule['schedule_id']
             schedules_return.append(Schedule(user, repository, url, schedule_id))
         return schedules_return
+
+    def create_file(self):
+        file = open("db.json", "w")
+        file.write("[]")
+        file.close()
