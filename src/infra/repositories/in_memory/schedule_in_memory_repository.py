@@ -1,7 +1,7 @@
 from abc import ABC
 
-from src.domanin.entities.schedule import Schedule
-from src.domanin.repositories.schedule_repository import ScheduleRepository
+from src.domain.entities.schedule import Schedule
+from src.domain.repositories.schedule_repository import ScheduleRepository
 
 
 class ScheduleInMemoryRepository(ScheduleRepository, ABC):

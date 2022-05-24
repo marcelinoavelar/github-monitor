@@ -1,6 +1,6 @@
 from abc import ABC
 
-from src.domanin.factories.repository_factory import RepositoryFactory
+from src.domain.factories.repository_factory import RepositoryFactory
 from src.infra.repositories.rest.github_data_rest_repository import GithubDataRestRepository
 from src.infra.repositories.rest.schedule_rest_repository import ScheduleJsonRepository
 

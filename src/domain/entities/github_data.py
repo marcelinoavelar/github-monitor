@@ -1,8 +1,8 @@
 import dataclasses
 from dataclasses import dataclass, field
 
-from src.domanin.entities.contributor import Contributor
-from src.domanin.entities.issue import Issue
+from src.domain.entities.contributor import Contributor
+from src.domain.entities.issue import Issue
 
 
 @dataclass

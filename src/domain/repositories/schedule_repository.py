@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src.domanin.entities.schedule import Schedule
+from src.domain.entities.schedule import Schedule
 
 
 class ScheduleRepository(ABC):

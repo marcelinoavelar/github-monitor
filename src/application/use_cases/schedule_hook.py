@@ -1,8 +1,8 @@
 import uuid
 
 from src.application.use_cases.schedule_hook_dto import ScheduleHookInput, ScheduleHookOutput
-from src.domanin.entities.schedule import Schedule
-from src.domanin.factories.repository_factory import RepositoryFactory
+from src.domain.entities.schedule import Schedule
+from src.domain.factories.repository_factory import RepositoryFactory
 
 
 class ScheduleHook:

@@ -2,7 +2,7 @@ import sys
 import pytest
 
 sys.path.append('')
-from src.domanin.entities.contributor import Contributor
+from src.domain.entities.contributor import Contributor
 
 
 class TestContributorEntity:

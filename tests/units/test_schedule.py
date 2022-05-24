@@ -2,7 +2,7 @@ import sys
 
 import pytest
 
-from src.domanin.entities.schedule import Schedule
+from src.domain.entities.schedule import Schedule
 
 sys.path.append('')
 

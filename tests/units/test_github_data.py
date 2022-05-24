@@ -4,9 +4,9 @@ import sys
 import pytest
 
 sys.path.append('')
-from src.domanin.entities.github_data import GithubData
-from src.domanin.entities.contributor import Contributor
-from src.domanin.entities.issue import Issue
+from src.domain.entities.github_data import GithubData
+from src.domain.entities.contributor import Contributor
+from src.domain.entities.issue import Issue
 
 
 class TestGithubDataEntity:

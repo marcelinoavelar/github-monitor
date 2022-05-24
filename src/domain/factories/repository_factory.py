@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 
-from src.domanin.repositories.github_data_repository import GithubDataRepository
-from src.domanin.repositories.schedule_repository import ScheduleRepository
+from src.domain.repositories.github_data_repository import GithubDataRepository
+from src.domain.repositories.schedule_repository import ScheduleRepository
 
 
 class RepositoryFactory(ABC):

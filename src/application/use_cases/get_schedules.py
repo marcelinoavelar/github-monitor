@@ -1,5 +1,5 @@
 from src.application.use_cases.get_schedules_dto import GetSchedulesOutput
-from src.domanin.factories.repository_factory import RepositoryFactory
+from src.domain.factories.repository_factory import RepositoryFactory
 
 
 class GetSchedules:

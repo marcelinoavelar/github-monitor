@@ -3,7 +3,7 @@ import json
 import requests
 
 from src.application.use_cases.process_hook_dto import ProcessHookInput, ProcessHookOutput
-from src.domanin.factories.repository_factory import RepositoryFactory
+from src.domain.factories.repository_factory import RepositoryFactory
 
 
 class ProcessHook:

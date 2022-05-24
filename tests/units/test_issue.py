@@ -2,7 +2,7 @@ import sys
 import pytest
 
 sys.path.append('')
-from src.domanin.entities.issue import Issue
+from src.domain.entities.issue import Issue
 
 
 class TestIssueEntity:

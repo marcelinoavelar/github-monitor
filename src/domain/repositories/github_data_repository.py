@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 
-from src.domanin.entities.github_data import GithubData
+from src.domain.entities.github_data import GithubData
 
 
 class GithubDataRepository(ABC):
